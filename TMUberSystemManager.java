@@ -21,7 +21,8 @@ public class TMUberSystemManager
 {
   private Map<String,User> users; // holds all users in a map where key is user id and value is user object 
   private ArrayList<Driver> drivers; // holds all drivers in an ArrayList 
-  private Queue<TMUberService> [] serviceRequests; // holds all service requests in an array of queues 
+  private Queue<TMUberService>[] serviceRequests;
+ // holds all service requests in an array of queues 
 
   public double totalRevenue; // Total revenues accumulated via rides and deliveries
   
@@ -40,11 +41,11 @@ public class TMUberSystemManager
   {
     users = new HashMap<String,User>(); // intializing users 
     drivers = new ArrayList<Driver>(); // intializing drivers 
-    serviceRequests = new LinkedList[4];  // intializing serviceRequests to length of 4(one for each zone)
+    Queue<TMUberService>[] serviceRequests = new LinkedList[4];  // intializing serviceRequests to length of 4(one for each zone)
 
     // iterating through service requests and initializing each queue into a linked list 
     for (int i = 0; i < serviceRequests.length; i ++) {
-      serviceRequests[i] = new LinkedList<>();
+      serviceRequests[i] = new LinkedList<TMUberService>();
     }
 
     totalRevenue = 0;
